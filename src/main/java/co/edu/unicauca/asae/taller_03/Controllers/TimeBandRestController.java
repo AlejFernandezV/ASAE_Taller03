@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.unicauca.asae.taller_03.facadeServices.DTO.TimeBandDTO;
@@ -53,8 +54,8 @@ public class TimeBandRestController {
         return objTimeBand;
     }
 
-    @DeleteMapping("/timeBands/{id}")
-    public Boolean deleteTimeBand(@PathVariable Integer id) {
+    @DeleteMapping("/timeBands")
+    public Boolean deleteTimeBand(@RequestParam Integer id) {
         Boolean bandera = false;
         TimeBandDTO currentTimeBand = timeBandService.findById(id);
         if (currentTimeBand != null) {
